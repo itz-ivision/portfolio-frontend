@@ -1,1 +1,33 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
 /* You can add global styles to this file, and also import other style files */
+body {
+    background: linear-gradient(135deg, #00008b 20%, #2b1055 50%, #440348 80%);
+    background-attachment: fixed;
+    position: relative;
+}
+
+/* Basic container for scrollable content */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #f8f9fa;
+    height: 100vh;
+    overflow: auto;
+  }
+  
+/* Hide scrollbar for the entire page */
+*::-webkit-scrollbar {
+    display: none; /* For WebKit-based browsers (Chrome, Safari, Edge) */
+  }
+  
+  * {
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and older Edge */
+  }
+  
+  

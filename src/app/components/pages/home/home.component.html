@@ -1,0 +1,338 @@
+<div id="particles-container" class="particles-container"></div>
+
+<app-header></app-header>
+
+  <!-- Main Section -->
+  <main class="mt-12 relative z-10">
+    <!-- Hero Section -->
+    <div class="relative h-96 overflow-hidden">
+      <div class="absolute inset-0">
+        
+        <!-- Abstract vertical eye shape with rays -->
+        <div class="absolute inset-0 ">
+          <svg class="w-full h-full absolute top-0 left-0" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <!-- Eye outline (vertical) -->
+            <ellipse cx="50" cy="50" rx="15" ry="30" stroke="#8A2BE2" stroke-width="2" fill="none" />
+            
+            <!-- Pupil -->
+            <circle cx="50" cy="50" r="7" fill="#FF4040" class="animate-glitch" />
+            
+            <!-- Rays emanating from the eye -->
+            <line x1="50" y1="15" x2="50" y2="0" stroke="#FF4040" stroke-width="1" />
+            <line x1="50" y1="85" x2="50" y2="100" stroke="#FF4040" stroke-width="1" />
+            <line x1="35" y1="25" x2="25" y2="15" stroke="#FFD700" stroke-width="1" />
+            <line x1="65" y1="25" x2="75" y2="15" stroke="#FFD700" stroke-width="1" />
+            <line x1="35" y1="75" x2="25" y2="85" stroke="#FFD700" stroke-width="1" />
+            <line x1="65" y1="75" x2="75" y2="85" stroke="#FFD700" stroke-width="1" />
+            <line x1="40" y1="50" x2="25" y2="50" stroke="#FF4040" stroke-width="1" />
+            <line x1="60" y1="50" x2="75" y2="50" stroke="#FF4040" stroke-width="1" />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Company Section -->
+    <div class="p-8">
+      <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4 tracking-wide">
+        <span class="text-[#f8f9fa]">Third</span>
+          <span class="text-[#ff5733]">Eye</span>
+          <span class="text-[#f8f9fa]">Vision</span><br>
+      </h1>      
+      <p class="text-lg md:text-xl leading-relaxed text-white max-w-3xl">
+        Welcome to ThirdEyeVision, where artificial intelligence meets innovation. Inspired by the profound vision
+        of Lord Shiva's third eye, we are here to empower businesses, organizations, and individuals with 
+        cutting-edge AI solutions that transform ideas into impactful realities.
+      </p>      
+      <div class="flex justify-end">
+        <button 
+          routerLink="/contacts" 
+          class="bg-gradient-to-r from-[#FF4040]/50 to-[#ffb366]/50 text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-gradient-to-r hover:from-[#FF4040]/50 hover:to-[#440348]/0 transition-colors duration-300">
+          Contact Us
+          <span class="ml-2">→</span>
+        </button>
+      </div>      
+    </div>
+    <section id="services-header" class="text-white py-8 px-8">
+      <div class="container mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-8 mb-4">
+          <div class="eye-container">
+            <!-- Left Eye -->
+            <div class="eye horizontal-eye">
+              <div class="iris"></div>
+            </div>
+          
+            <!-- Third Eye -->
+            <div class="eye vertical-eye">
+              <div class="iris-vertical"></div>
+            </div>
+          
+            <!-- Right Eye -->
+            <div class="eye horizontal-eye">
+              <div class="iris"></div>
+            </div>
+          </div>          
+
+          <!-- Right Section: Social Media Icons -->
+          <div class="text-right">
+            <div class="flex justify-end gap-4 mb-4">
+                <div class="flex flex-col md:flex-row md:space-x-8 text-center items-center">
+                    <!-- LinkedIn -->
+                    <a class="flex items-center space-x-2 cursor-pointer text-white hover:text-[#ffb366] uppercase">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                        <path d="M19 0H5C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5V5c0-2.761-2.239-5-5-5zm-11 19H5v-7h3v7zm-1.5-8.285c-.967 0-1.75-.785-1.75-1.75s.783-1.75 1.75-1.75 1.75.783 1.75 1.75-.783 1.75-1.75 1.75zm13.5 8.285h-3v-4.285c0-1.023-.023-2.346-1.429-2.346-1.43 0-1.648 1.116-1.648 2.27V19h-3v-7h2.879v.957h.041c.402-.763 1.382-1.566 2.843-1.566 3.039 0 3.614 2 3.614 4.601V19z" />
+                      </svg>
+                    </a>
+                  
+                    <!-- X (formerly Twitter) -->
+                    <a class="flex items-center space-x-2 cursor-pointer text-white hover:text-[#ffb366] uppercase">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                        <path d="M23.5 0h-3.9l-7.6 9.7L4.8 0H.5l8.7 11.4L0 24h3.9l7.9-10.1L19.3 24h4.2l-9.2-11.8L23.5 0zm-10 13.9l-1.2-1.6L3.7 22h3.9l5.9-7.9zm2.1-2.8l1.2 1.6 8.4-11H21.8l-6.2 8.5z" />
+                      </svg>
+                    </a>
+                </div>
+            </div>
+            <h3 class="text-xl font-semibold">
+              Illuminating the Future with AI
+            </h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- Services Section -->
+<section class="services text-white py-8 px-8">
+  <!-- Heading Section -->
+  <div class="text-2xl mb-10 relative mb-12">
+    <span class="text-xl md:text-2xl">SERVICES</span>
+    <button routerLink='/blog' class="ml-4 bg-cyan-500/30 text-yellow-500 px-3 py-2 rounded-full hover:bg-[#FFD700]/30">
+      <lucide-icon name="brain-cog" />
+    </button>
+  </div>
+
+  <!-- Service Cards -->
+  <div class="max-w-7xl mx-auto">
+    <!-- If servicesList has items, show the service cards -->
+    <div *ngIf="servicesList && servicesList.length > 0; else noServices" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      <!-- Service Item -->
+      <div 
+        *ngFor="let service of servicesList"
+        class="service-item bg-gradient-to-r from-[#FF4040]/50 to-[#ffb366]/50 text-white hover:bg-gradient-to-r hover:from-[#FF4040]/50 hover:to-[#440348]/0 transition-all duration-300 ease-in-out rounded-lg p-4 w-full flex flex-col items-start relative transform hover:scale-105 hover:shadow-lg"
+      >
+        <!-- Icon -->
+        <div 
+          class="text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-pink-500 left-4 -top-6 transition transform hover:scale-110">
+          <lucide-icon name="brain-cog" />
+        </div>
+
+        <!-- Card Title and Description -->
+        <div class="mt-10">
+          <h3 class="text-[#D2BF37] text-2xl font-bold mb-4">{{ service.title }}</h3>
+          <p class="text-white text-sm leading-relaxed">{{ service.description }}</p>
+        </div>
+
+        <!-- Footer with Additional Details -->
+        <div class="mt-4 text-sm text-white text-center">
+          <p class="flex items-center justify-center gap-2 mb-2">
+            <strong>Created At:</strong> {{ service.created_at | date: 'mediumDate' }}
+          </p>
+
+          <!-- Divider -->
+          <div class="border-t-2 my-4"></div>
+
+          <!-- Technologies Section -->
+          <div class="mt-6">
+            <span class="block text-lg font-semibold text-[#D2BF37] mb-2">Technologies</span>
+            <div *ngIf="service.technologies && service.technologies.length > 0; else noTechnologies" class="flex flex-wrap justify-center gap-2">
+              <span 
+                *ngFor="let tech of service.technologies"
+                class="px-3 py-1 bg-gradient-to-r from-[#FF4040]/50 to-[#ffb366]/50 text-white text-xs font-medium rounded-full shadow hover:bg-gradient-to-r from-[#FF4040]/50 to-[#ffb366]/0 hover:text-white transition-all">
+                {{ tech.name }}
+              </span>
+            </div>
+            <ng-template #noTechnologies>
+              <p class="text-gray-300 italic">No technologies available.</p>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Else block -->
+    <ng-template #noServices>
+      <div class="text-center py-16">
+        <h2 class="text-yellow-300 text-3xl font-semibold">
+          Services Coming Soon!
+        </h2>
+        <p class="text-white text-lg mt-4">
+          Stay tuned for exciting updates.
+        </p>
+      </div>
+    </ng-template>
+  </div>
+
+  <!-- Footer Section -->
+  <div class="flex items-center justify-between mt-12 py-8 px-8">
+    <div class="flex justify-end">
+      <span class="text-muted">Check out More</span>
+    </div>
+    <a href="/services" class="group px-4 py-2 text-white hover:text-[#ffb366]">
+      View More
+      <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4 inline-block transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+      </svg>
+    </a>
+  </div>
+</section>
+
+<!-- Blog Section -->
+<section class="blog py-8 px-8">
+    <!-- Heading Section -->
+  <div class="text-2xl mb-10 relative">
+    <span class="text-xl md:text-2xl">BLOG</span>
+    <button routerLink='/blog' class="ml-4 bg-cyan-500/30 text-yellow-500 px-3 py-2 rounded-full hover:bg-[#FFD700]/30">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+        <path d="M20 2H4C2.9 2 2 2.9 2 4v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 18H4V4h16v16zM6 6h12v2H6zm0 4h12v2H6zm0 4h12v2H6zm0 4h12v2H6z"/>
+      </svg>
+    </button>
+  </div>
+
+    <!-- Blog Grid -->
+    <div class="max-w-7xl mx-auto">
+    <div *ngIf="blogPosts.length > 0; else noPosts" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div
+        *ngFor="let post of blogPosts"
+        class="group overflow-hidden border-0 bg-transparent shadow-none"
+      >
+        <div class="p-0">
+          <div class="relative aspect-[4/3] overflow-hidden rounded-2xl">
+            <img
+              [src]="post.image || '../../../../assets/images/Blog.png'"
+              [alt]="post.title || 'Blog post image'"
+              class="object-cover transition-transform group-hover:scale-105 w-full h-full"
+            />
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <button
+                  class="px-4 py-2 text-white border border-white hover:bg-white hover:text-black transition-all"
+                  (click)="navigateToBlogPost(post.id)"
+                >
+                  Read
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="ml-2 h-4 w-4 inline-block"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="pt-4">         
+            <h4 class="text-lg font-medium mt-2">{{ post.title }}</h4>
+            <div *ngIf="post.categories.length > 0; else noCategories" class="mt-4">
+              <span 
+                class="text-sm text-primary inline-block bg-gradient-to-r from-[#FF4040]/50 to-[#ffb366]/50 hover:bg-gradient-to-r from-[#FF4040]/50 to-[#ffb366]/0 hover:text-white transition-all px-3 py-1 rounded-full mr-2 mb-2"
+                *ngFor="let category of post.categories"
+              >
+                {{ category?.name || 'Uncategorized' }}
+              </span>
+            </div>
+            <ng-template #noCategories>
+              <span class="text-sm text-muted">No categories available</span>
+            </ng-template>   
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- No Posts Template -->
+    <ng-template #noPosts>
+      <div class="flex justify-center items-center h-full mb-12 mt-8">
+        <div class="text-center">
+          <h2 class="text-3xl font-semibold text-[#ffb366]">No Posts Found</h2>
+          <p class="text-gray-300 mt-4 text-lg">
+            It seems like there are no posts to display right now. Please check back later!
+          </p>
+        </div>
+      </div>
+    </ng-template>
+
+    <!-- Footer Section -->
+    <div class="flex items-center justify-between mt-12">
+      <div class="flex justify-end">
+        <span class="text-muted">Check out More</span>
+      </div>
+      <a href="blog/" class="group px-4 py-2 text-white hover:text-[#ffb366]">
+        <b>View More</b>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="ml-2 h-4 w-4 inline-block transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 5l7 7-7 7"
+          />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<app-testimonials-section></app-testimonials-section>
+<!-- Footer Section -->
+<div class="flex items-center justify-between mt-12 py-12 px-12">
+  <div class="flex justify-end">
+    <span class="text-muted">Give Us a Review </span>
+</div>      
+  <a href="/testimonials/"  class="group px-4 py-2 text-white hover:text-[#ffb366]">
+    Click Here
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="ml-2 h-4 w-4 inline-block transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M9 5l7 7-7 7"
+      />
+    </svg>
+  </a>
+</div>
+
+<!-- Contact -->
+<section class="text-white py-16 px-8">
+  <div class="text-2xl text-left mb-10 relative">
+    <!-- Title -->
+      <span class="text-xl md:text-2xl">CONTACT US</span>
+      <button 
+        routerLink='/contacts' 
+        class="ml-4 bg-cyan-500/30 text-yellow-500 px-3 py-2 rounded-full hover:bg-[#FFD700]/30">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="w-6 h-6" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 3.75v4.5m0-4.5h-4.5m4.5 0-6 6m3 12c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 0 1 4.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.054.902-.417 1.173l-1.293.97a1.062 1.062 0 0 0-.38 1.21 12.035 12.035 0 0 0 7.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 0 1 1.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 0 1-2.25 2.25h-2.25Z" />
+        </svg>        
+      </button>
+    </div>
+    <app-contact-form></app-contact-form>
+</section>
+
+  </main>
+
+<app-footer></app-footer>

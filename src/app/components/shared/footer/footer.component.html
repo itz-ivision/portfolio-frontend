@@ -1,0 +1,63 @@
+<div class="flex justify-between items-center p-6 relative z-10">
+  <div class="w-full h-full text-white flex flex-col">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+      <!-- Column 1: Logo and Description -->
+      <div class="flex flex-col items-start">
+        <div class="mb-4">
+          <span class="text-4xl font-bold flex items-center">
+            <!-- Logo Icon -->
+            <a routerLink="/home" class="flex items-center space-x-2">
+              <span class="text-[#f8f9fa]">Third</span>
+              <span class="text-[#ff5733]">Eye</span>
+              <span class="text-[#f8f9fa]">Vision</span>
+            </a>
+          </span>
+        </div>
+        <p class="text-white">
+          "Illuminating the Future with AI"
+        </p>
+      </div>
+    
+      <!-- Column 2: Navigation Links -->
+      <div class="flex flex-col md:items-center justify-center">
+        <div class="flex flex-col md:flex-row md:space-x-8 text-center">
+          <a routerLink="/about" class="cursor-pointer text-white hover:text-[#ffb366] uppercase">About</a>
+          <a routerLink="/services" class="cursor-pointer text-white hover:text-[#ffb366] uppercase">Services</a>
+          <a routerLink="/blog" class="cursor-pointer text-white hover:text-[#ffb366] uppercase">Blog</a>
+        </div>
+      </div>
+    
+      <!-- Column 3: Social Links -->
+      <div class="flex flex-col md:items-end justify-center mr-4">
+        <div class="flex flex-col md:flex-row md:space-x-8 text-center items-center">
+          <!-- LinkedIn -->
+          <a class="flex items-center space-x-2 cursor-pointer text-white hover:text-[#ffb366] uppercase">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+              <path d="M19 0H5C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5V5c0-2.761-2.239-5-5-5zm-11 19H5v-7h3v7zm-1.5-8.285c-.967 0-1.75-.785-1.75-1.75s.783-1.75 1.75-1.75 1.75.783 1.75 1.75-.783 1.75-1.75 1.75zm13.5 8.285h-3v-4.285c0-1.023-.023-2.346-1.429-2.346-1.43 0-1.648 1.116-1.648 2.27V19h-3v-7h2.879v.957h.041c.402-.763 1.382-1.566 2.843-1.566 3.039 0 3.614 2 3.614 4.601V19z" />
+            </svg>
+            <span class="text-sm">LinkedIn</span>
+          </a>
+        
+          <!-- X (formerly Twitter) -->
+          <a class="flex items-center space-x-2 cursor-pointer text-white hover:text-[#ffb366] uppercase">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+              <path d="M23.5 0h-3.9l-7.6 9.7L4.8 0H.5l8.7 11.4L0 24h3.9l7.9-10.1L19.3 24h4.2l-9.2-11.8L23.5 0zm-10 13.9l-1.2-1.6L3.7 22h3.9l5.9-7.9zm2.1-2.8l1.2 1.6 8.4-11H21.8l-6.2 8.5z" />
+            </svg>
+            <span class="text-sm">X</span>
+          </a>
+        </div>                        
+      </div>
+    </div>
+    
+    <hr class="border-t-6 border-white/50" style="border-style: dotted; border-spacing: 10px;">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="col-span-1">
+        <p class="text-center font-bold my-12 text-[#ffb366]/60">Made with <span class="text-xl" style="color: #ff5733;">&hearts;</span></p>
+      </div>
+    
+      <div class="col-span-1 flex justify-center items-center">
+        <p class="text-center font-bold my-12 text-[#ffb366]/60">Copyright © {{currentYear}} ThirdEyeVision</p>
+      </div>
+    </div>
+  </div>
+</div>

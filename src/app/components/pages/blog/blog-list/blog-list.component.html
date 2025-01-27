@@ -1,0 +1,86 @@
+<div class="min-h-screen text-white p-6">
+  <div class="mx-auto space-y-6">
+    <!-- Header -->
+    <div class="text-center">
+      <h1 class="text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#FF4040] to-[#ffb366]">
+        Blog Space
+      </h1>
+      <p class="mt-4 text-white text-xl">
+        Stay updated with the latest trends, technologies, and innovations.
+      </p>
+    </div>
+
+    <!-- Search and Filter -->
+    <div class="card p-6">
+      <div class="card-content flex flex-col sm:flex-row justify-center items-center gap-6">
+        <div class="relative w-96">
+          <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-zinc-400 text-lg"></i>
+          <input 
+            type="text" 
+            placeholder="Search tags, like ai" 
+            class="pl-12 pr-4 py-2.5 bg-zinc-900/30 border border-zinc-700 text-white w-full rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-base"
+            [(ngModel)]="searchQuery"
+          >
+        </div>
+        <button 
+          class="btn btn-outline text-base px-5 py-2 rounded-lg shadow-sm hover:bg-gradient-to-r from-[#FF4040]/50 to-[#ffb366]/0 hover:text-white transition-all"
+          (click)="searchPosts()"
+        >
+          <i class="fas fa-tag mr-2"></i> Filter by Tag
+        </button>
+      </div>                  
+    </div>
+
+    <!-- Blog Posts -->
+    <div *ngIf="isFiltered ? filteredPosts.length > 0 : blogPosts.length > 0; else noPosts">
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div
+          *ngFor="let post of (isFiltered ? filteredPosts : blogPosts)"
+          class="card bg-gradient-to-r from-[#FF4040]/50 to-[#ffb366]/50 text-white hover:bg-gradient-to-r hover:from-[#FF4040]/50 hover:to-[#440348]/0 hover:scale-105 transition-transform duration-300 ease-in-out rounded-lg p-6 flex flex-col items-start"
+          (click)="navigateToBlogPost(post.id)"
+        >
+          <img 
+            [src]="post.image || '../../../../assets/images/Blog.png'"
+            [alt]="post.title" class="w-full h-48 object-cover"
+          >
+          <div class="card-header mt-4">
+            <h2 class="text-xl font-semibold text-[#D2BF37]">{{ post.title }}</h2>
+          </div>
+          <div class="card-content">
+            <p class="text-zinc-400 mb-4">{{ post.excerpt }}</p>
+            <div class="flex flex-wrap gap-2">
+              <div *ngIf="post.tags.length > 0; else noTags" class="mt-4">
+                <span 
+                  class="text-sm text-primary inline-block bg-purple-500 hover:bg-gradient-to-r from-[#FF4040]/50 to-[#ffb366]/0 hover:text-white transition-all px-3 py-1 rounded-full mr-2 mb-2"
+                  *ngFor="let tag of post.tags"
+                >
+                  {{ tag?.name || 'Uncategorized' }}
+                </span>
+              </div>
+              <ng-template #noTags>
+                <span class="text-sm text-muted">No tags available</span>
+              </ng-template>
+            </div>
+          </div>
+          <div class="card-footer flex justify-between float-right text-sm text-zinc-400">
+            <span>{{ post.published_date | date:'yyyy-MM-dd' }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #noPosts>
+      <p class="text-center text-zinc-400 text-lg">No posts to show</p>
+    </ng-template>
+
+    <!-- Load All Posts Button -->
+    <div class="text-center mt-12" *ngIf="showButton">
+      <button 
+        class="btn btn-outline text-base px-5 py-2 rounded-lg shadow-sm hover:bg-gradient-to-r from-[#FF4040]/50 to-[#ffb366]/0 hover:text-white transition-all"
+        (click)="loadAllBlogPosts()"
+      >
+        Load All Articles
+      </button>
+    </div>
+  </div>
+</div>

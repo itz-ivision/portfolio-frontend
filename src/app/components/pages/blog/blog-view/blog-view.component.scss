@@ -1,0 +1,26 @@
+.prose {
+    h2 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+  
+    pre {
+      background-color: #1e1e1e;
+      color: #dcdcdc;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: 'Courier New', Courier, monospace;
+    }
+  
+    code {
+      background-color: #2b1055;
+      color: #ffcc00;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+  }
+  

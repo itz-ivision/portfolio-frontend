@@ -1,0 +1,107 @@
+<section class="text-white py-8 px-8">
+    <!-- Header Section -->
+    <div class="text-2xl text-left mb-10 relative flex items-center">
+      <h2 class="text-xl md:text-2xl uppercase font-bold">Featured Testimonials</h2>
+      <div class="ml-4 bg-cyan-500/30 text-white p-2 rounded-full">
+        <svg class="w-8 h-8 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+        </svg>
+      </div>
+    </div>
+    
+    <div class="container mx-auto px-4">
+      <!-- Loading State -->
+      <div *ngIf="loading" class="flex justify-center items-center h-64">
+        <div class="animate-spin rounded-full h-12 w-12 border-4 border-yellow-500 border-t-transparent"></div>
+      </div>
+  
+      <!-- Error State -->
+      <div *ngIf="error" class="bg-red-500/30 text-white p-4 rounded-lg text-center">
+        {{ error }}
+      </div>
+  
+      <!-- Testimonials Carousel -->
+      <div class="relative" *ngIf="!loading && !error && featuredTestimonials.length > 0">
+        <!-- Single Testimonial -->
+        <div class="max-w-4xl mx-auto bg-gradient-to-r from-[#FF4040]/50 to-[#ffb366]/50 hover:bg-gradient-to-r hover:from-[#FF4040]/50 hover:to-[#440348]/0 transition-all duration-300 ease-in-out rounded-lg transform hover:scale-110 hover:shadow-xl">
+          <div class="p-10">
+            <!-- Quote Icon -->
+            <svg class="w-12 h-12 text-yellow-500 mb-6 mx-auto" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+            </svg>
+            
+            <!-- Testimonial Text -->
+            <blockquote class="text-xl text-center text-white mb-8 italic font-light leading-relaxed">
+              {{ featuredTestimonials[currentIndex].testimonial_text }}
+            </blockquote>
+            
+            <!-- Rating Stars -->
+          <div class="flex justify-center mb-6">
+            <div class="flex space-x-1">
+              <ng-container *ngFor="let _ of [1,2,3,4,5]">
+                <svg class="w-6 h-6" [class.text-yellow-500]="_ <= featuredTestimonials[currentIndex].rating" 
+                     [class.text-gray-400]="_ > featuredTestimonials[currentIndex].rating"
+                     fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 17.27l5.18 3.09-1.64-6.91L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.21-1.64 6.91z"/>
+                </svg>
+              </ng-container>
+            </div>
+          </div>
+            
+            <!-- Client Information -->
+            <div class="flex items-center justify-center space-x-4">
+              <div *ngIf="featuredTestimonials[currentIndex].client_photo_url" 
+                   class="w-16 h-16 border-2 border-yellow-500 rounded-full overflow-hidden shadow-lg">
+                <img [src]="featuredTestimonials[currentIndex].client_photo_url" 
+                     [alt]="featuredTestimonials[currentIndex].client_name"
+                     class="w-full h-full object-cover">
+              </div>
+              <div class="text-center">
+                <p class="text-lg font-semibold text-white">{{ featuredTestimonials[currentIndex].client_name }}</p>
+                <p class="text-sm text-gray-300">{{ featuredTestimonials[currentIndex].client_position }}</p>
+                <p class="text-sm text-gray-400">{{ featuredTestimonials[currentIndex].client_company }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Navigation Arrows -->
+        <div class="absolute top-1/2 -translate-y-1/2 w-full flex justify-between px-4">
+          <button class="transform -translate-x-4 bg-cyan-500/30 p-3 rounded-full hover:bg-[#FFD700]/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                  (click)="prevTestimonial()"
+                  [disabled]="currentIndex === 0"
+                  aria-label="Previous testimonial">
+            <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+          </button>
+          <button class="transform translate-x-4 bg-cyan-500/30 p-3 rounded-full hover:bg-[#FFD700]/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                  (click)="nextTestimonial()"
+                  [disabled]="currentIndex === featuredTestimonials.length - 1"
+                  aria-label="Next testimonial">
+            <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+  
+      <!-- Pagination Dots -->
+      <div class="flex justify-center mt-8 space-x-2">
+        <button *ngFor="let testimonial of featuredTestimonials; let i = index"
+                class="w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                [class]="i === currentIndex ? 'bg-yellow-500' : 'bg-[#FF4040]/30 hover:bg-[#FF4040]/50'"
+                (click)="setTestimonial(i)"
+                [attr.aria-label]="'Go to testimonial ' + (i + 1)">
+        </button>
+      </div>
+  
+      <!-- Empty State -->
+      <div *ngIf="!loading && !error && featuredTestimonials.length === 0" 
+       class="text-center text-gray-300 p-8 border-dashed border-2 border-gray-300 rounded-lg "
+      >
+        <p class="text-lg font-semibold text-yellow-500 mb-4">✨ No Featured Testimonials Yet</p>
+        <p class="text-md text-white">Be the first to share your feedback and get featured! We're excited to hear from you.😊</p>
+      </div>
+    </div>
+  </section>

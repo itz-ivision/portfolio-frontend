@@ -1,0 +1,131 @@
+.particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; // Place particles in the background
+}
+
+@keyframes glitch {
+    0% {
+      transform: translateX(0) skewX(0);
+    }
+    10% {
+      transform: translateX(-3px) skewX(-5deg);
+    }
+    20% {
+      transform: translateX(3px) skewX(5deg);
+    }
+    30% {
+      transform: translateX(-2px) skewX(-3deg);
+    }
+    40% {
+      transform: translateX(2px) skewX(3deg);
+    }
+    50% {
+      transform: translateX(0) skewX(0);
+    }
+    60% {
+      transform: translateX(-3px) skewX(-5deg);
+    }
+    70% {
+      transform: translateX(3px) skewX(5deg);
+    }
+    80% {
+      transform: translateX(-2px) skewX(-3deg);
+    }
+    90% {
+      transform: translateX(2px) skewX(3deg);
+    }
+    100% {
+      transform: translateX(0) skewX(0);
+    }
+  }
+  
+  .animate-glitch {
+    animation: glitch 60s infinite linear alternate-reverse; /* Slower animation */
+  }
+  
+  /* Eye Container */
+  .eye-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 300px;
+    width: 400px;
+    padding: 20px;
+    
+    /* Eye Styles */
+    .eye {
+      position: relative;
+      width: 80px;
+      height: 40px;
+      border: 2px solid #2C2F54;
+    //   background: #FFF;
+      border-radius: 50%;
+      margin: 10px;
+      box-shadow: 0 5px 10px rgba(44, 47, 84, 0.5);
+  
+      /* Iris */
+      .iris {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 25px;
+        height: 25px;
+        background: radial-gradient(circle, #0099ff 30%, #FFD700 70%);
+        border-radius: 50%;
+        animation: blink-horizontal 4s infinite;
+      }
+  
+         /* Iris Vertical*/
+         .iris-vertical {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 25px;
+          height: 25px;
+          background: radial-gradient(circle, #FF4040 40%, #FFD700 60%);
+          border-radius: 50%;
+          animation: blink-vertical 4s infinite;
+        }
+    }
+  
+    /* Vertical Eye */
+    .vertical-eye {
+      height: 80px;
+      width: 40px;
+      border-radius: 50%;
+      margin: 0 20px;
+    //   background: radial-gradient(circle, #16588E, #0D1F33);
+      
+      /* Move the middle eye upwards */
+      position: relative;
+      top: -60px; /* Adjust the value to move the eye higher */
+    }
+  }
+  
+  /* Animation for Horizontal Eyes */
+  @keyframes blink-horizontal {
+    0%, 100% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+  }
+  
+  /* Animation for Vertical Eye (opposite blink) */
+  @keyframes blink-vertical {
+    0%, 100% {
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+  

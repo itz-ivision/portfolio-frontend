@@ -1,0 +1,118 @@
+<div class="min-h-screen text-white p-8 relative mb-12">
+    <!-- Heading -->
+  <h2 class="text-2xl font-bold text-gray-300 text-center">
+    Testimonials Form
+  </h2>
+  <div class="max-w-3xl mx-auto pt-12">
+    <form [formGroup]="testimonialForm" (ngSubmit)="onSubmit()" class="space-y-12">
+      <div class="space-y-8">
+        <!-- Client Name -->
+        <div class="space-y-2">
+          <label for="clientName" class="text-gray-300 text-lg font-medium">
+            Name<span class="text-[#FF4040]">*</span>
+          </label>
+          <input 
+            id="clientName"
+            formControlName="client_name"
+            [class.invalid]="testimonialForm.get('client_name')?.invalid && testimonialForm.get('client_name')?.touched"
+            class="border-2 border-gray-800 rounded-lg px-4 py-3 bg-transparent focus:ring-2 focus:ring-[#FF4040] focus:border-[#FF4040] transition-colors placeholder:text-gray-600 w-full"
+            placeholder="John Doe"
+          />
+          <div class="error-message" *ngIf="testimonialForm.get('client_name')?.invalid && testimonialForm.get('client_name')?.touched">
+            <span class="text-[#FF4040]" *ngIf="testimonialForm.get('client_name')?.errors?.['required']">Client name is required</span>
+          </div>
+        </div>
+
+        <!-- Client Position -->
+        <div class="space-y-2">
+          <label for="clientPosition" class="text-gray-300 text-lg font-medium">Position</label>
+          <input
+            id="clientPosition"
+            formControlName="client_position"
+            class="border-2 border-gray-800 rounded-lg px-4 py-3 bg-transparent focus:ring-2 focus:ring-[#FF4040] focus:border-[#FF4040] transition-colors placeholder:text-gray-600 w-full"
+            placeholder="Manager, Marketing"
+          />
+        </div>
+
+        <!-- Client Company -->
+        <div class="space-y-2">
+          <label for="clientCompany" class="text-gray-300 text-lg font-medium">Company</label>
+          <input
+            id="clientCompany"
+            formControlName="client_company"
+            class="border-2 border-gray-800 rounded-lg px-4 py-3 bg-transparent focus:ring-2 focus:ring-[#FF4040] focus:border-[#FF4040] transition-colors placeholder:text-gray-600 w-full"
+            placeholder="TechCorp Ltd."
+          />
+        </div>
+
+        <!-- Testimonial Text -->
+        <div class="space-y-2">
+          <label for="testimonialText" class="text-gray-300 text-lg font-medium">
+            Testimonial<span class="text-[#FF4040]">*</span>
+          </label>
+          <textarea
+            id="testimonialText"
+            formControlName="testimonial_text"
+            rows="5"
+            [class.invalid]="testimonialForm.get('testimonial_text')?.invalid && testimonialForm.get('testimonial_text')?.touched"
+            class="border-2 border-gray-800 rounded-lg px-4 py-3 bg-transparent focus:ring-2 focus:ring-[#FF4040] focus:border-[#FF4040] transition-colors min-h-[120px] resize-none placeholder:text-gray-600 w-full"
+            placeholder="Client's feedback..."
+          ></textarea>
+          <div class="error-message" *ngIf="testimonialForm.get('testimonial_text')?.invalid && testimonialForm.get('testimonial_text')?.touched">
+            <span class="text-[#FF4040]" *ngIf="testimonialForm.get('testimonial_text')?.errors?.['required']">Testimonial is required</span>
+          </div>
+        </div>
+
+        <!-- Client Photo -->
+        <div class="space-y-2">
+            <label for="clientPhotoUrl" class="text-gray-300 text-lg font-medium">Photo URL</label>
+            <input
+              id="clientPhotoUrl"
+              type="url"
+              formControlName="client_photo"
+              placeholder="Enter the URL of the photo"
+              class="border-2 border-gray-800 rounded-lg px-4 py-3 bg-transparent focus:ring-2 focus:ring-[#FF4040] focus:border-[#FF4040] transition-colors placeholder:text-gray-600 w-full"
+            />
+        </div>          
+
+        <!-- Rating -->
+        <div class="space-y-2">
+          <label for="rating" class="text-gray-300 text-lg font-medium">
+            Rating (1.0 - 5.0)<span class="text-[#FF4040]">*</span>
+          </label>
+          <input
+            id="rating"
+            type="number"
+            formControlName="rating"
+            [class.invalid]="testimonialForm.get('rating')?.invalid && testimonialForm.get('rating')?.touched"
+            class="border-2 border-gray-800 rounded-lg px-4 py-3 bg-transparent focus:ring-2 focus:ring-[#FF4040] focus:border-[#FF4040] transition-colors placeholder:text-gray-600 w-full"
+            placeholder="4.5"
+            step="0.1"
+            min="1"
+            max="5"
+          />
+          <div class="error-message" *ngIf="testimonialForm.get('rating')?.invalid && testimonialForm.get('rating')?.touched">
+            <span class="text-[#FF4040]" *ngIf="testimonialForm.get('rating')?.errors?.['required']">Rating is required</span>
+            <span class="text-[#FF4040]" *ngIf="testimonialForm.get('rating')?.errors?.['min']">Rating cannot be less than 1.0</span>
+            <span class="text-[#FF4040]" *ngIf="testimonialForm.get('rating')?.errors?.['max']">Rating cannot be more than 5.0</span>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="flex justify-end">
+          <button
+            type="submit"
+            [disabled]="testimonialForm.invalid || submitting"
+            [ngClass]="{
+              'bg-gradient-to-r from-[#FF4040] to-[#ffb366] text-white hover:from-[#FF4040]/80 hover:to-[#ffb366]/80 cursor-pointer': !testimonialForm.invalid && !submitting,
+              'bg-gray-700 text-white cursor-not-allowed opacity-50': testimonialForm.invalid || submitting
+            }"
+            class="px-8 py-3 rounded-full font-semibold text-lg transition-colors duration-300"
+          >
+            {{ submitting ? 'Submitting...' : 'Submit Testimonial' }}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

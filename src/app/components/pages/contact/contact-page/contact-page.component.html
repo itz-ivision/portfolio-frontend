@@ -1,0 +1,77 @@
+<app-header></app-header>
+
+<div class="min-h-screen text-white p-8">
+    <div class=" mx-auto space-y-6">
+      <!-- Title -->
+        <h1 class="text-2xl md:text-4xl font-light tracking-wider text-white">CONTACT US</h1>
+  
+      <div class="grid lg:grid-cols-3 gap-6">
+        <div class="card p-6 lg:col-span-1">
+          <div class="eye-container">
+            <!-- Left Eye -->
+            <div class="eye horizontal-eye">
+              <div class="iris"></div>
+            </div>
+          
+            <!-- Third Eye -->
+            <div class="eye vertical-eye">
+              <div class="iris-vertical"></div>
+            </div>
+          
+            <!-- Right Eye -->
+            <div class="eye horizontal-eye">
+              <div class="iris"></div>
+            </div>
+          </div> 
+        </div>
+  
+        <!-- Main Content -->
+        <div class="lg:col-span-2 space-y-6">
+          <!-- Latest Works Card -->
+          <div class="card p-6 rounded-lg">
+            <!-- Heading Design Adjustments -->
+            <h2 class="text-xl md:text-2xl lg:text-2xl font-bold text-center tracking-tight leading-tight">
+              Contact Form
+            </h2>
+            
+            <app-contact-form></app-contact-form>
+          </div>        
+  
+          <!-- Services and Blog -->
+          <div class="grid sm:grid-cols-2 gap-6">
+            <!-- Services Card -->
+            <div class="card p-6">
+              <h2 class="text-lg font-semibold mb-4 text-white">Social Links</h2>
+              <div class="flex flex-col md:flex-row md:space-x-8 text-center items-center">
+                <!-- LinkedIn -->
+                <a class="flex items-center space-x-2 cursor-pointer text-white hover:text-[#ffb366] uppercase">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                    <path d="M19 0H5C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5V5c0-2.761-2.239-5-5-5zm-11 19H5v-7h3v7zm-1.5-8.285c-.967 0-1.75-.785-1.75-1.75s.783-1.75 1.75-1.75 1.75.783 1.75 1.75-.783 1.75-1.75 1.75zm13.5 8.285h-3v-4.285c0-1.023-.023-2.346-1.429-2.346-1.43 0-1.648 1.116-1.648 2.27V19h-3v-7h2.879v.957h.041c.402-.763 1.382-1.566 2.843-1.566 3.039 0 3.614 2 3.614 4.601V19z" />
+                  </svg>
+                </a>
+              
+                <!-- X (formerly Twitter) -->
+                <a class="flex items-center space-x-2 cursor-pointer text-white hover:text-[#ffb366] uppercase">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                    <path d="M23.5 0h-3.9l-7.6 9.7L4.8 0H.5l8.7 11.4L0 24h3.9l7.9-10.1L19.3 24h4.2l-9.2-11.8L23.5 0zm-10 13.9l-1.2-1.6L3.7 22h3.9l5.9-7.9zm2.1-2.8l1.2 1.6 8.4-11H21.8l-6.2 8.5z" />
+                  </svg>
+                </a>
+            </div>
+            </div>
+  
+            
+            <div class="card p-6 ">
+              <h2 class="text-lg font-semibold mb-4 text-white">Email Us</h2>
+              <a class="flex items-center space-x-2 cursor-pointer text-white hover:text-[#ffb366] uppercase">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                </svg>                  
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<app-footer></app-footer>

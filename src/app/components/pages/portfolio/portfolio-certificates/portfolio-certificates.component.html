@@ -1,0 +1,74 @@
+<app-header></app-header>
+
+<!-- Certificates -->
+<section class="max-w-7xl mx-auto py-8 mt-12">
+    <div class="container mx-auto px-4 md:px-6">
+       <!-- Page Title -->
+        <h1 class="text-4xl font-bold text-[#ffb366] text-center mb-4">Certificates</h1>
+        <p class="text-white text-center max-w-2xl mx-auto mb-12">
+            Showcasing My Achievements
+        </p>
+  
+      <!-- Certificates Grid -->
+      <div *ngIf="certificates.length > 0; else noCertificates">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+          <!-- Loop through certificates -->
+          <div
+            *ngFor="let certificate of certificates"
+            class="relative p-6 rounded-lg shadow-md text-white group">
+            
+            <!-- Certificate Title -->
+            <h4 class="text-xl font-semibold text-yellow-500 mb-4">{{ certificate.title }}</h4>
+            
+            <!-- Certificate Description -->
+            <p *ngIf="certificate.description" class="text-gray-300 text-sm mb-4">
+              {{ certificate.description }}
+            </p>
+            
+            <!-- Certificate Issuer -->
+            <p class="text-sm mb-4">
+              <span class="font-medium text-[#ffb366]">Issued By:</span> {{ certificate.issuer }}
+            </p>
+            
+            <!-- Date -->
+            <p class="text-sm text-gray-400 mb-4">
+              <span class="font-medium text-[#ffb366]">Date:</span> {{ certificate.date }}
+            </p>
+            
+            <!-- View Certificate Button -->
+            <a
+              href="{{ certificate.link }}"
+              target="_blank"
+              class="inline-flex items-center px-4 py-2 rounded-lg bg-[#ffb366] text-black font-semibold hover:bg-[#FFD700] transition-all duration-300">
+              View Certificate
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="ml-2 h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+  
+      <!-- No Certificates Fallback -->
+      <ng-template #noCertificates>
+        <div class="flex justify-center items-center h-full mb-12 mt-8">
+          <div class="text-center">
+            <h2 class="text-3xl font-semibold text-[#ffb366]">No Certificates Found</h2>
+            <p class="text-gray-300 mt-4 text-lg">
+              It seems like there are no certificates to display right now. Please check back later!
+            </p>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </section>
+
+<app-footer></app-footer>

@@ -1,0 +1,145 @@
+<app-header></app-header>
+
+<div class="min-h-screen text-white">
+  <!-- Hero Section -->
+  <section class="h-screen flex items-center justify-center px-4">
+    <div class="text-center max-w-3xl mx-auto">
+      <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4 tracking-wide">
+        <span class="text-[#f8f9fa]">Third</span>
+        <span class="text-[#ff5733]">Eye</span>
+        <span class="text-[#f8f9fa]">Vision</span>
+      </h1>
+      <p class="text-xl md:text-2xl mb-4 italic text-yellow-400 drop-shadow-sm">
+        "Illuminating the Future with AI"
+      </p>
+      <p class="text-lg md:text-xl leading-relaxed text-white">
+        Welcome to ThirdEyeVision, where artificial intelligence meets innovation. Inspired by the profound vision
+        of Lord Shiva's third eye, we are here to empower businesses, organizations, and individuals with cutting-edge AI solutions that transform ideas into impactful realities.
+      </p>
+    </div>
+  </section>
+
+  <!-- Our Mission and Vision Section -->
+  <section class="py-8 px-8 md:px-0">
+    <div class="container mx-auto">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="pr-4 md:pr-8 border-r border-gray-300">
+          <h3 class="text-3xl font-semibold mb-4">Our Mission</h3>
+          <p class="text-lg md:text-xl max-w-3xl">
+            At ThirdEyeVision, our mission is to harness the boundless potential of AI to solve complex problems, unlock hidden insights, and redefine the way businesses operate.
+          </p>
+        </div>
+        <div class="pl-4 md:pl-8">
+          <h3 class="text-3xl font-semibold mb-4">Our Vision</h3>
+          <p class="text-lg md:text-xl max-w-3xl">
+            To deliver sustainable, scalable, and intelligent AI solutions that drive progress and create a brighter, inclusive future for all.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Services Section -->
+  <section class="services text-white py-8 px-8 mt-8">
+    <div class="text-2xl mb-10 relative mb-12">
+      <span class="text-xl md:text-2xl">SERVICES</span>
+      <button routerLink='/blog' class="ml-4 bg-cyan-500/30 text-yellow-500 px-3 py-2 rounded-full hover:bg-[#FFD700]/30">
+        <lucide-icon name="brain-cog" />
+      </button>
+    </div>
+
+    <div class="max-w-7xl mx-auto">
+      <div *ngIf="servicesList && servicesList.length > 0; else noServices" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div *ngFor="let service of servicesList" class="service-item bg-gradient-to-r from-[#FF4040]/50 to-[#ffb366]/50 text-white hover:bg-gradient-to-r hover:from-[#FF4040]/50 hover:to-[#440348]/0 transition-all duration-300 ease-in-out rounded-lg p-4 w-full flex flex-col items-start relative transform hover:scale-105 hover:shadow-lg">
+          <div class="text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-pink-500 left-4 -top-6 transition transform hover:scale-110">
+            <lucide-icon name="brain-cog" />
+          </div>
+          <div class="mt-10">
+            <h3 class="text-[#D2BF37] text-2xl font-bold mb-4">{{ service.title }}</h3>
+            <p class="text-white text-sm leading-relaxed">{{ service.description }}</p>
+          </div>
+          <div class="mt-4 text-sm text-white text-center">
+            <p class="flex items-center justify-center gap-2 mb-2">
+              <strong>Created At:</strong> {{ service.created_at | date: 'mediumDate' }}
+            </p>
+            <div class="border-t-2 my-4"></div>
+            <div class="mt-6">
+              <span class="block text-lg font-semibold text-[#D2BF37] mb-2">Technologies</span>
+              <div *ngIf="service.technologies && service.technologies.length > 0; else noTechnologies" class="flex flex-wrap justify-center gap-2">
+                <span *ngFor="let tech of service.technologies" class="px-3 py-1 bg-gradient-to-r from-[#FF4040]/50 to-[#ffb366]/50 text-white text-xs font-medium rounded-full shadow hover:bg-gradient-to-r from-[#FF4040]/50 to-[#ffb366]/0 hover:text-white transition-all">
+                  {{ tech.name }}
+                </span>
+              </div>
+              <ng-template #noTechnologies>
+                <p class="text-gray-300 italic">No technologies available.</p>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #noServices>
+        <div class="text-center py-16">
+          <h2 class="text-yellow-300 text-3xl font-semibold">
+            Services Coming Soon!
+          </h2>
+          <p class="text-white text-lg mt-4">
+            Stay tuned for exciting updates.
+          </p>
+        </div>
+      </ng-template>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="flex items-center justify-between mt-12 py-8 px-8">
+      <div class="flex justify-end">
+        <span class="text-muted">Check out More</span>
+      </div>
+      <a href="/services" class="group px-4 py-2 text-white hover:text-[#ffb366]">
+        View More
+        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4 inline-block transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="py-16 px-4 md:px-0">
+    <div class="container mx-auto">
+      <h2 class="text-4xl font-semibold text-white mb-8">Ready to Unlock the Power of AI?</h2>
+      <p class="text-lg md:text-xl text-gray-300 mb-8">
+        Let ThirdEyeVision guide you through the world of artificial intelligence and data-driven insights.
+      </p>
+      <button class="float-right bg-gradient-to-r from-[#FF4040]/50 to-[#ffb366]/50 text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-gradient-to-r hover:from-[#FF4040]/50 hover:to-[#440348]/0 transition-colors duration-300">
+        Contact Us
+      </button>
+    </div>
+  </section>
+
+  <section class="py-8 mt-10">
+    <div class="container mx-auto text-center text-white">
+      <p class="text-lg mb-6">Stay connected with us on social media and follow our journey as we continue to innovate and transform industries with AI solutions.</p>
+      
+      <div class="flex justify-center gap-8 mb-4">
+        <div class="flex flex-col md:flex-row md:space-x-8 text-center items-center">
+          <!-- LinkedIn -->
+          <a class="flex items-center space-x-2 cursor-pointer text-white hover:text-[#ffb366] uppercase">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+              <path d="M19 0H5C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5V5c0-2.761-2.239-5-5-5zm-11 19H5v-7h3v7zm-1.5-8.285c-.967 0-1.75-.785-1.75-1.75s.783-1.75 1.75-1.75 1.75.783 1.75 1.75-.783 1.75-1.75 1.75zm13.5 8.285h-3v-4.285c0-1.023-.023-2.346-1.429-2.346-1.43 0-1.648 1.116-1.648 2.27V19h-3v-7h2.879v.957h.041c.402-.763 1.382-1.566 2.843-1.566 3.039 0 3.614 2 3.614 4.601V19z" />
+            </svg>
+          </a>
+        
+          <!-- X (formerly Twitter) -->
+          <a class="flex items-center space-x-2 cursor-pointer text-white hover:text-[#ffb366] uppercase">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+              <path d="M23.5 0h-3.9l-7.6 9.7L4.8 0H.5l8.7 11.4L0 24h3.9l7.9-10.1L19.3 24h4.2l-9.2-11.8L23.5 0zm-10 13.9l-1.2-1.6L3.7 22h3.9l5.9-7.9zm2.1-2.8l1.2 1.6 8.4-11H21.8l-6.2 8.5z" />
+            </svg>
+          </a>
+      </div>
+      </div>
+    </div>
+  </section>  
+
+</div>
+
+<app-footer></app-footer>

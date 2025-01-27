@@ -1,0 +1,70 @@
+.robot-icon {
+    position: relative;
+    width: 32px;
+    height: 32px;
+  
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: #A855F7;
+      border-radius: 8px;
+    }
+  
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      background-color: #1a1f2e;
+      border-radius: 6px;
+    }
+  
+    .eye {
+      position: absolute;
+      top: 12px;
+      width: 4px;
+      height: 4px;
+      background-color: #FFD700;
+      border-radius: 50%;
+  
+      &:first-child {
+        left: 8px;
+      }
+  
+      &:last-child {
+        right: 8px;
+      }
+    }
+  
+    .mouth {
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 16px;
+      height: 4px;
+      background-color: #FFD700;
+      border-radius: 0 0 16px 16px;
+    }
+  
+    .antenna {
+      position: absolute;
+      top: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 16px;
+      height: 8px;
+      background-color: #FF6B6B;
+      border-radius: 16px 16px 0 0;
+    }
+  }
+  
+  button:hover .robot-icon::before {
+    background-color: #FFD700;
+  }
+  
+  button:hover .robot-icon::after {
+    background-color: #2d1b4e;
+  }
+  
+  

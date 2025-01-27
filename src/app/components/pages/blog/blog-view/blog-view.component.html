@@ -1,0 +1,81 @@
+<app-header></app-header>
+
+<div class="min-h-screen text-white p-6">
+  <div class="max-w-4xl mx-auto space-y-8">
+
+    <!-- Back Button -->
+    <button 
+      routerLink="/blog"
+      class="btn btn-outline text-base px-5 py-2 rounded-lg shadow-sm hover:bg-gradient-to-r from-[#FF4040]/50 to-[#ffb366]/0 hover:text-white transition-all"
+    >
+      <i class="fas fa-chevron-left"></i>
+      <span>Back to Blog List</span>
+    </button>
+
+    <!-- Loading State -->
+    <div *ngIf="loading" class="flex justify-center items-center py-8">
+      <div class="animate-spin rounded-full h-12 w-12 border-t-4 border-purple-600"></div>
+      <span class="ml-4 text-lg">Loading blog post...</span>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="error" class="text-center text-red-500 font-semibold">
+      {{ error }}
+    </div>
+
+    <!-- Main Content Card -->
+    <div 
+      *ngIf="!loading && blogPost" 
+      class="card bg-gradient-to-r from-[#000000] to-[#2b1055] border border-zinc-700 shadow-lg rounded-lg overflow-hidden"
+    >
+      <!-- Blog Image -->
+      <img 
+        [src]="blogPost.image || '../../../../assets/images/Blog.png'"
+        [alt]="blogPost.title || 'Blog Image'" 
+        class="w-full h-64 object-cover"
+      >
+
+      <!-- Blog Content -->
+      <div class="p-6 space-y-6">
+        <!-- Tags Section -->
+        <div *ngIf="blogPost.tags.length > 0; else noTags" class="mt-4">
+          <span 
+            class="text-sm text-primary inline-block bg-purple-600 hover:text-white transition-all px-3 py-1 rounded-full mr-2 mb-2"
+            *ngFor="let tag of blogPost.tags"
+          >
+            {{ tag?.name || 'Uncategorized' }}
+          </span>
+        </div>
+        <ng-template #noTags>
+          <span class="text-sm text-muted">No tags available</span>
+        </ng-template> 
+
+        <!-- Title -->
+        <h1 class="text-4xl font-extrabold text-white mb-8">{{ blogPost.title }}</h1>
+
+        <!-- Author and Date -->
+        <div class="flex items-center justify-between text-sm text-zinc-400 mb-8">
+          <div class="flex items-center space-x-2">
+            <i class="fas fa-calendar"></i>
+            <span>{{ blogPost.published_date | date }}</span>
+          </div>
+        </div>
+
+        <!-- Blog Content with Markdown -->
+        <markdown [data]="blogPost.content" class="prose text-lg">
+          <!-- Custom Code Block Styling -->
+          <pre class="bg-gray-800 p-4 rounded-lg overflow-x-auto shadow-md">
+            <code class="text-sm text-white block"> 
+              <!-- This is a placeholder for the actual code content -->
+              {{ blogPost.content }}
+            </code>
+          </pre>
+        </markdown>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<app-footer></app-footer>

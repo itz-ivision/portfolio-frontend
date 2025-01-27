@@ -1,0 +1,169 @@
+<div class="min-h-screen text-white p-8 relative">
+  <div class="max-w-3xl mx-auto pt-12">
+
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-10">
+        <div class="space-y-8">
+          <!-- Name Field -->
+          <div class="space-y-2">
+            <label for="name" class="text-gray-300 text-lg font-medium">
+                Your Name<span class="text-[#FF4040]">*</span>
+            </label>
+            <input
+              id="name"
+              formControlName="name"
+              [class.invalid]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched"
+              class="border-2 border-gray-800 rounded-lg px-4 py-3 bg-transparent focus:ring-2 focus:ring-[#FF4040] focus:border-[#FF4040] transition-colors placeholder:text-gray-600 w-full"
+              placeholder="Arnab Gupta"
+            />
+            <div class="error-message" *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
+                <span class="text-[#FF4040]" *ngIf="contactForm.get('name')?.errors?.['required']">Name is required</span>
+                <span class="text-[#FF4040]" *ngIf="contactForm.get('name')?.errors?.['maxlength']">Name is too long</span>
+              </div>
+          </div>
+      
+          <!-- Email Field -->
+          <div class="space-y-2">
+            <label for="email" class="text-gray-300 text-lg font-medium">
+                Your Email<span class="text-[#FF4040]">*</span>
+            </label>
+            <input
+              id="email"
+              type="email"
+              formControlName="email"
+              [class.invalid]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
+              class="border-2 border-gray-800 rounded-lg px-4 py-3 bg-transparent focus:ring-2 focus:ring-[#FF4040] focus:border-[#FF4040] transition-colors placeholder:text-gray-600 w-full"
+              placeholder="arnab@thirdivision.com"
+            />
+            <div class="error-message" *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+                <span class="text-[#FF4040]" *ngIf="contactForm.get('email')?.errors?.['required']">Email is required</span>
+                <span class="text-[#FF4040]" *ngIf="contactForm.get('email')?.errors?.['email']">Please enter a valid email</span>
+              </div>
+          </div>
+      
+          <!-- Phone Field (Optional) -->
+          <div class="space-y-2">
+            <label for="phone" class="text-gray-300 text-lg font-medium">Your Phone (Optional)</label>
+            <input
+              id="phone"
+              type="tel"
+              formControlName="phone"
+              [class.invalid]="contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched"
+              class="border-2 border-gray-800 rounded-lg px-4 py-3 bg-transparent focus:ring-2 focus:ring-[#FF4040] focus:border-[#FF4040] transition-colors placeholder:text-gray-600 w-full"
+              placeholder="+91 9876543210"
+            />
+            <div class="error-message" *ngIf="contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched">
+                <span class="text-[#FF4040]" *ngIf="contactForm.get('phone')?.errors?.['invalidPhone']">Please enter a valid phone number</span>
+              </div>
+          </div>
+      
+          <!-- Subject Field -->
+          <div class="space-y-2">
+            <label for="subject" class="text-gray-300 text-lg font-medium">
+                Subject<span class="text-[#FF4040]">*</span>
+            </label>
+            <input
+              id="subject"
+              formControlName="subject"
+              [class.invalid]="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched"
+              class="border-2 border-gray-800 rounded-lg px-4 py-3 bg-transparent focus:ring-2 focus:ring-[#FF4040] focus:border-[#FF4040] transition-colors placeholder:text-gray-600 w-full"
+              placeholder="Project Inquiry"
+            />
+            <div class="error-message" *ngIf="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched">
+                <span class="text-[#FF4040]" *ngIf="contactForm.get('subject')?.errors?.['required']">Subject is required</span>
+            </div>
+          </div>
+      
+          <!-- Reason Dropdown -->
+          <div class="space-y-2">
+            <label for="reason" class="text-gray-300 text-lg font-medium">
+                Reason<span class="text-[#FF4040]">*</span>
+            </label>
+            <select
+                id="reason"
+                formControlName="reason"
+                [class.invalid]="contactForm.get('reason')?.invalid && contactForm.get('reason')?.touched"
+                class="border-2 border-gray-800 rounded-lg px-4 py-3 bg-[#1e1e2d]/20 text-white focus:ring-2 focus:ring-[#FF4040] focus:border-[#FF4040] transition-colors w-full"
+            >
+            <option
+                *ngFor="let reason of contactReasons"
+                [value]="reason.value"
+                class="bg-[#1e1e2d] text-white hover:bg-[#FF4040] hover:text-black focus:bg-[#FF4040] focus:text-black"
+            >
+                {{ reason.label }}
+            </option>
+            </select>
+          </div>
+
+          <!-- Other Reason Field (Conditional) -->
+          <div *ngIf="contactForm.get('reason')?.value === 'other'" class="space-y-2">
+            <label for="otherReason" class="text-gray-300 text-lg font-medium">
+                Specify Other Reason<span class="text-[#FF4040]">*</span>
+            </label>
+            <input
+              id="otherReason"
+              formControlName="other_reason"
+              [class.invalid]="contactForm.get('other_reason')?.invalid && contactForm.get('other_reason')?.touched"
+              class="border-2 border-gray-800 rounded-lg px-4 py-3 bg-transparent focus:ring-2 focus:ring-[#FF4040] focus:border-[#FF4040] transition-colors placeholder:text-gray-600 w-full"
+              placeholder="Describe your reason"
+            />
+            <div class="error-message" *ngIf="contactForm.get('other_reason')?.invalid && contactForm.get('other_reason')?.touched">
+                <span class="text-[#FF4040]" *ngIf="contactForm.get('other_reason')?.errors?.['required']">Please specify the reason</span>
+            </div>
+          </div>
+      
+          <!-- Message Field -->
+          <div class="space-y-2">
+            <label for="message" class="text-gray-300 text-lg font-medium">
+                Message<span class="text-[#FF4040]">*</span>
+            </label>
+            <textarea
+              id="message"
+              formControlName="message"
+              rows="5"
+              [class.invalid]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"
+              class="border-2 border-gray-800 rounded-lg px-4 py-3 bg-transparent focus:ring-2 focus:ring-[#FF4040] focus:border-[#FF4040] transition-colors min-h-[120px] resize-none placeholder:text-gray-600 w-full"
+              placeholder="Tell us about your project..."
+            ></textarea>
+            <div class="error-message" *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
+                <span class="text-[#FF4040]" *ngIf="contactForm.get('message')?.errors?.['required']">Message is required</span>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Form messages -->
+        <div class="form-messages mt-4">
+            <!-- Error message -->
+            <div
+            class="text-[#FF4040] border border-[#F14A00] rounded-md p-4 mb-3 shadow-sm"
+            *ngIf="submitError"
+            >
+            <span class="font-medium">Error:</span> {{ submitError }}
+            </div>
+        
+            <!-- Success message -->
+            <div
+            class="text-[#3E7B27] border border-[#85A947] rounded-md p-4 shadow-sm"
+            *ngIf="submitSuccess"
+            >
+            <span class="font-medium">Success:</span> Thank you for your message! We'll get back to you soon.
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="flex justify-end">
+            <button
+            type="submit"
+            [disabled]="contactForm.invalid || submitting"
+            [ngClass]="{
+                'bg-gradient-to-r from-[#FF4040] to-[#ffb366] text-white hover:from-[#FF4040]/80 hover:to-[#ffb366]/80 cursor-pointer': !contactForm.invalid && !submitting,
+                'bg-gray-700 text-white cursor-not-allowed opacity-50': contactForm.invalid || submitting
+            }"
+            class="px-8 py-3 rounded-full font-semibold text-lg transition-colors duration-300"
+            >
+            {{ submitting ? 'Sending...' : 'Send Message' }}
+            </button>
+        </div>
+      </form>
+      
+  </div>
+</div>

@@ -1,0 +1,79 @@
+<!-- Header --> 
+<div class="bg-transparent text-[#f8f9fa]">
+  <!-- Header Section -->
+  <header class="flex justify-between items-center p-4 relative z-10">
+    <div class="flex items-center space-x-2">
+      <!-- Brand Name -->
+      <span class="ml-2 text-2xl font-bold flex items-center">
+        <!-- Logo Icon -->
+        <a routerLink="/home">
+          <span class="text-[#f8f9fa]">Third</span>
+          <span class="text-[#ff5733]">Eye</span>
+          <span class="text-[#f8f9fa]">Vision</span>
+        </a>
+      </span>      
+    </div>
+
+    <!-- Navbar for Desktop and Tablet, centered -->
+    <nav class="hidden md:flex space-x-6 ml-auto mr-4 justify-end flex-1">
+      <a 
+        routerLink="/home" 
+        routerLinkActive="text-[#ff5733]" 
+        class="font-bold hover:text-[#ffb366] hover:font-bold hover:scale-105 transition-all">
+        Home
+      </a>
+      <a 
+        routerLink="/services" 
+        routerLinkActive="text-[#ff5733]" 
+        class="font-bold hover:text-[#ffb366] hover:font-bold hover:scale-105 transition-all">
+        Services
+      </a>
+      <a 
+        routerLink="/portfolio" 
+        routerLinkActive="text-[#ff5733]" 
+        class="font-bold hover:text-[#ffb366] hover:font-bold hover:scale-105 transition-all">
+        Portfolio
+      </a>
+      <a 
+        routerLink="/blog" 
+        routerLinkActive="text-[#ff5733]" 
+        class="font-bold hover:text-[#ffb366] hover:font-bold hover:scale-105 transition-all">
+        Blog
+      </a>
+      <a 
+        routerLink="/about" 
+        routerLinkActive="text-[#ff5733]" 
+        class="font-bold hover:text-[#ffb366] hover:font-bold hover:scale-105 transition-all">
+        AboutUs
+      </a>
+      <a 
+        routerLink="/contacts" 
+        routerLinkActive="text-[#ff5733]" 
+        class="font-bold hover:text-[#ffb366] hover:font-bold hover:scale-105 transition-all">
+        ContactUs
+      </a>
+    </nav>
+
+    <!-- Mobile Hamburger Menu -->
+    <div class="md:hidden">
+      <button 
+        (click)="toggleMobileMenu()"
+        class="text-white focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  
+  </header>
+
+  <!-- Mobile Menu (Hidden by Default) -->
+  <div id="mobileMenu" class="md:hidden hidden bg-transparent text-[#f8f9fa] w-full p-4 space-y-4">
+    <a routerLink="/home" routerLinkActive="text-[#ff5733]" class="block hover:text-[#ffb366] transition-colors">Home</a>
+    <a routerLink="/services" routerLinkActive="text-[#ff5733]" class="block hover:text-[#ffb366] transition-colors">Services</a>
+    <a routerLink="/portfolio" routerLinkActive="text-[#ff5733]" class="block hover:text-[#ffb366] transition-colors">Portfolio</a>
+    <a routerLink="/blog" routerLinkActive="text-[#ff5733]" class="block hover:text-[#ffb366] transition-colors">Blog</a>
+    <a routerLink="/about" routerLinkActive="text-[#ff5733]" class="block hover:text-[#ffb366] transition-colors">About Us</a>
+    <a routerLink="/contacts" routerLinkActive="text-[#ff5733]" class="block hover:text-[#ffb366] transition-colors">Contact Us</a>
+  </div>
+</div>
