@@ -63,6 +63,7 @@ export class ChatBotComponent implements OnInit, AfterViewChecked{
 
     this.chatbotService.getChatResponse(userInput).subscribe({
       next: (response) => {
+        console.log(response);
         const botMessage: Message = {
           text: response.response,
           isBot: true,
